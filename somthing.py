@@ -69,8 +69,8 @@ def main():
 def drawthings(DISPLAY,BLUE,posx,posy,sizex,sizey,num):
     #draws the dice in the position the dice was when clicked
     pygame.draw.rect(DISPLAY,BLUE,(posx,posy,sizex,sizey))
-    pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy-1), (sizex/2 + posx, -sizex/4 + posy-1.5), (sizex + posx -1, posy-1)] )
-    pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy + sizey), (sizex/2 + posx, sizex/4 + posy + sizey), (sizex-1 + posx, posy + sizey)] )
+    pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy-1), (sizex/2 + posx, -sizey/4 + posy-1.5), (sizex + posx -1, posy-1)] )
+    pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy + sizey), (sizex/2 + posx, sizey/4 + posy + sizey), (sizex-1 + posx, posy + sizey)] )
     #draws the number on the dice
     #font and size
     Number = pygame.font.SysFont("Arial Black", int(sizex/4))
