@@ -10,7 +10,7 @@ def main():
 
     WHITE=(255,255,255)
     BLUE=(0,0,255)
-    RED =(255,0,0)
+    #RED =(255,0,0)
 
     DISPLAY.fill(WHITE)
 
