@@ -6,7 +6,7 @@ import random
 def main():
     pygame.init()
 
-    DISPLAY=pygame.display.set_mode((600,700),0,32)
+    DISPLAY=pygame.display.set_mode((900,700),0,32)
 
     WHITE=(255,255,255)
     BLUE=(0,0,255)
@@ -25,6 +25,12 @@ def main():
     while True:
         #screen refresh for new movements and spawns
         DISPLAY.fill(WHITE)
+        
+        Rules = pygame.font.SysFont("Arial Black", int(sizex/5))
+        Rules = Rules.render("Press W,A,S,D to move and click to roll a dice from 1 to 20", True,(0,0,0))
+        RuleRect = Rules.get_rect()
+        RuleRect.center = (450,10)
+        DISPLAY.blit(Rules, RuleRect)
 
         #movement, Conditionals
         if pygame.key.get_pressed()[K_d]:
