@@ -2,7 +2,7 @@ import pygame, sys
 from pygame.locals import *
 import collections
 import random
-
+#module import
 def main():
     pygame.init()
 
@@ -15,16 +15,18 @@ def main():
     DISPLAY.fill(WHITE)
 
     pygame.draw.rect(DISPLAY,BLUE,(200,150,100,100))
+    #Variables
     posx = 50
     posy = 50
     sizex, sizey = 60, 40
     i=0
     Drawlist = {}
+    #Loop
     while True:
         #screen refresh for new movements and spawns
         DISPLAY.fill(WHITE)
 
-        #movement
+        #movement, Conditionals
         if pygame.key.get_pressed()[K_d]:
             posx += 0.5
         if pygame.key.get_pressed()[K_a]:
@@ -34,7 +36,7 @@ def main():
         if pygame.key.get_pressed()[K_s]:
             posy += 0.5
 
-        #draws the initial dice
+        #draws the initial dice, Methods
         pygame.draw.rect(DISPLAY,BLUE,(posx,posy,sizex,sizey))
         pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy-1), (sizex/2 + posx, -sizex/4 + posy-1.5), (sizex + posx -1, posy-1)] )
         pygame.draw.polygon(DISPLAY, BLUE, [(posx, posy + sizey), (sizex/2 + posx, sizex/4 + posy + sizey), (sizex-1 + posx, posy + sizey)] )
@@ -55,7 +57,7 @@ def main():
                 Drawlist[i] = DISPLAY,BLUE,posx,posy,sizex,sizey,x
                 #dice id
                 i+=1
-                #checks if the drawlist is bigger than 5
+                #checks if the drawlist is bigger than 5, Comparison operator/logical operator
                 if len(Drawlist) > 5:
                     # if it is bigger than 5 it gets rid of the oldest thing that was added to the list
                     (k := next(iter(Drawlist)), Drawlist.pop(k))
@@ -65,7 +67,7 @@ def main():
                 sys.exit()
         #updates the whole screen anytime anything happens
         pygame.display.update()
-
+#Functions
 def drawthings(DISPLAY,BLUE,posx,posy,sizex,sizey,num):
     #draws the dice in the position the dice was when clicked
     pygame.draw.rect(DISPLAY,BLUE,(posx,posy,sizex,sizey))
@@ -82,6 +84,7 @@ def drawthings(DISPLAY,BLUE,posx,posy,sizex,sizey,num):
     numrect.center = (posx+((sizex)/2),posy+((sizey)/2))
     #the thing that actually draws
     DISPLAY.blit(Number, numrect)
+
     if num == "1":
         #if nat 1 renders for failure
         Number1 = pygame.font.SysFont("Arial Black", int(sizex/5))
